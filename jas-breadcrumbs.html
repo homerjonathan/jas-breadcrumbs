@@ -90,7 +90,7 @@ Element that does a simple Breadcrumbs Menu
 
     <script>
 
-        var breadcrumbs;
+        var app;
         Polymer({
 
             is: 'jas-breadcrumbs',
@@ -113,7 +113,7 @@ Element that does a simple Breadcrumbs Menu
             },
             ready: function() {
                 // Global Variable for context menu to make it easier to find
-                breadcrumbs = this;
+                app.breadcrumbs = this;
             },
             setMenu: function(newMenu) {
                 this.menu = newMenu;
@@ -125,9 +125,7 @@ Element that does a simple Breadcrumbs Menu
                 }
             },
             _selectHelp: function() {
-                if (breadcrumbs.openHelpPage != undefined) {
-                    breadcrumbs.openHelpPage();
-                }
+                app.openHelpPage();
             }
         });
     </script>

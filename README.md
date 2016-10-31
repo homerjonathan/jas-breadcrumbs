@@ -1,38 +1,35 @@
 # \<jas-breadcrumbs\>
 
-Simple Breadcrumbs Menu
+Simple Breadcrumbs Menu with Help Icon at the right side of the Page.
 
-## Install the Polymer-CLI
+## Using the Component
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
+Create a shared "app".
 
-## Viewing Your Application
-
-```
-$ polymer serve
-```
-
-## Building Your Application
 
 ```
-$ polymer build
+  var app = {};
 ```
 
-This will create a `build/` folder with `bundled/` and `unbundled/` sub-folders
-containing a bundled (Vulcanized) and unbundled builds, both run through HTML,
-CSS, and JS optimizers.
-
-You can serve the built versions by giving `polymer serve` a folder to serve
-from:
+The element creates a breadlink which is itself to make it easy to find.
 
 ```
-$ polymer serve build/bundled
+ var breadCrumbMenu = [];
+          breadCrumbMenu.push({text: "Main", id: "main"});
+          breadCrumbMenu.push({text: "Second", id: "second"});
+          breadCrumbMenu.push({text: "Third", id: "third"});
+          breadcrumbs.setMenu(breadCrumbMenu);
+
 ```
 
-## Running Tests
+This will create a menu.  When the item is select the 'id' is set to the attribute page of the element.
+
+Trap this and you can use it to change the page.
+
+If the help button is pressed it calls:
 
 ```
-$ polymer test
-```
+  app.openHelpPage();
+````
 
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+Could be written better but works well with my application.  So good enough for now.
