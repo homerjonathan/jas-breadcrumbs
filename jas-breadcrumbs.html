@@ -1,0 +1,134 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!--
+Element that does a simple Breadcrumbs Menu
+
+##### Example
+
+    <jas-breadcrumbs></jas-breadcrumbs>
+
+@element jas-breadcrumbs
+@status alpha
+@demo demo/index.html
+-->
+
+
+<dom-module id="jas-breadcrumbs">
+
+    <template>
+        <style>
+            :host {
+                display: block;
+                padding: 10px 10px 0 8px;
+                margin: 0;
+                font-family: 'Roboto', 'Noto', sans-serif;
+            }
+            a {
+                text-decoration: none;
+            }
+            a {
+                color: #039be5;
+                text-decoration: none;
+                -webkit-tap-highlight-color: transparent;
+            }
+            a {
+                background-color: transparent;
+            }
+            .breadcrumb {
+                font-size: 18px;
+                color: rgba(67, 110, 144, 0.8);
+            }
+            .breadcrumb:hover {
+                font-size: 18px;
+                color: rgba(27, 53, 71, 0.98);
+            }
+            .breadcrumb i,
+            .breadcrumb [class^="mdi-"], .breadcrumb [class*="mdi-"],
+            .breadcrumb i.material-icons {
+                display: inline-block;
+                float: left;
+                font-size: 24px;
+            }
+            .breadcrumb:before {
+                content: '\E5CC';
+                color: rgba(67, 110, 144, 0.8);
+                vertical-align: middle;
+                display: inline-block;
+                font-family: 'Material Icons';
+                font-weight: normal;
+                font-style: normal;
+                font-size: 25px;
+                margin: 0 10px 0 8px;
+                -webkit-font-smoothing: antialiased;
+                padding-left: 11px;
+            }
+
+            .breadcrumb:first-child:before {
+                display: none;
+            }
+            .breadcrumb:last-child {
+                color: rgba(67, 110, 144, 1);
+            }
+            .helpIcon {
+                color: var(--app-primary-color);
+                float: right;
+                margin-right: 10px;
+            }
+            .breadcrumb_layout {
+                height: 42px;
+                margin-left: 20px;
+            }
+        </style>
+            <div class="flex layout breadcrumb_layout">
+                <template id="resultList" is="dom-repeat" items="{{menu}}" as="m">
+                    <a on-tap="_selectPage" id="{{m.id}}" class="breadcrumb">{{m.text}}</a>
+                </template>
+                <paper-icon-button on-tap="_selectHelp" class="helpIcon" icon="help"></paper-icon-button>
+            </div>
+    </template>
+
+    <script>
+
+        var breadcrumbs;
+        Polymer({
+
+            is: 'jas-breadcrumbs',
+
+            properties: {
+                menu: {
+                    type: Object,
+                    notify: true
+                },
+                mobile: {
+                    type: Boolean,
+                    value: false
+                },
+                page: {
+                    type: String,
+                    value: "",
+                    reflectToAttribute: true,
+                    notify: true
+                }
+            },
+            ready: function() {
+                // Global Variable for context menu to make it easier to find
+                breadcrumbs = this;
+            },
+            setMenu: function(newMenu) {
+                this.menu = newMenu;
+            },
+            _selectPage: function(e) {
+                var model = e.model;
+                if (model.m != undefined) {
+                    this.page = model.m.id;
+                }
+            },
+            _selectHelp: function() {
+                if (breadcrumbs.openHelpPage != undefined) {
+                    breadcrumbs.openHelpPage();
+                }
+            }
+        });
+    </script>
+</dom-module>
