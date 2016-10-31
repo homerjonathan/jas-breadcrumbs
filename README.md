@@ -12,7 +12,7 @@ Create a shared "app".
 ```
 
 
-The element creates a breadlink which is itself to make it easy to find.
+The element creates a app.breadcrumb link which is itself to make it easy to find.
 
 ```
  var breadCrumbMenu = [];
