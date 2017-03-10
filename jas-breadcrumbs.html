@@ -1,5 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
 
 <!--
 Element that does a simple Breadcrumbs Menu
@@ -77,7 +77,7 @@ Element that does a simple Breadcrumbs Menu
             <template id="resultList" is="dom-repeat" items="{{menu}}" as="m">
                 <a on-tap="_selectPage" id="{{m.id}}" class="breadcrumb">{{m.text}}</a>
             </template>
-            <paper-icon-button on-tap="_selectHelp" class="helpIcon" icon="help"></paper-icon-button>
+            <paper-icon-button on-tap="_selectHelp" class="helpIcon" icon="samsicons:help"></paper-icon-button>
         </div>
     </template>
 
@@ -114,7 +114,7 @@ Element that does a simple Breadcrumbs Menu
             _selectPage: function(e) {
                 var model = e.model;
                 if (model.m != undefined) {
-                    this.page = model.m.id;
+                    this.fire('page_change', {page:  model.m.id});
                 }
             },
             _selectHelp: function() {
