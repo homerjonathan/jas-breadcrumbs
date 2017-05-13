@@ -63,7 +63,7 @@ Element that does a simple Breadcrumbs Menu
                 color: rgba(67, 110, 144, 1);
             }
             .helpIcon {
-                color: var(--app-primary-color);
+                color: var(--app-primary-color,#436E90);
                 float: right;
                 margin-right: 10px;
             }
@@ -92,21 +92,13 @@ Element that does a simple Breadcrumbs Menu
                 menu: {
                     type: Object,
                     notify: true
-                },
-                mobile: {
-                    type: Boolean,
-                    value: false
-                },
-                page: {
-                    type: String,
-                    value: "",
-                    reflectToAttribute: true,
-                    notify: true
                 }
             },
-            ready: function() {
-                // Global Variable for context menu to make it easier to find
-                app.breadcrumbs = this;
+            attached: function() {
+                // Attempts to store itself in app as Global Variable so that it can be found
+                if (app != undefined) {
+                    app.breadcrumbs = this;
+                }
             },
             setMenu: function(newMenu) {
                 this.menu = newMenu;
@@ -118,7 +110,9 @@ Element that does a simple Breadcrumbs Menu
                 }
             },
             _selectHelp: function() {
-                app.openHelpPage();
+                if (app != undefined) {
+                    app.openHelpPage();
+                }
             }
         });
     </script>
