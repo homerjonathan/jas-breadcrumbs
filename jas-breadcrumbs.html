@@ -1,66 +1,50 @@
-<link rel="import" href="../polymer/polymer.html">
-<!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
-
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../polymer/lib/mixins/gesture-event-listeners.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-iconset-svg/iron-iconset-svg.html">
 <!--
 Element that does a simple Breadcrumbs Menu
-
 ##### Example
-
     <jas-breadcrumbs></jas-breadcrumbs>
-
 @element jas-breadcrumbs
 @status alpha
 @demo demo/index.html
 -->
-
-
 <dom-module id="jas-breadcrumbs">
-
     <template>
         <style>
             :host {
                 display: block;
                 padding: 10px 10px 0 8px;
                 margin: 0;
-                font-family: 'Roboto', 'Noto', sans-serif;
+                /*font-family: 'Roboto', 'Noto', sans-serif;*/
             }
-            a {
-                text-decoration: none;
-            }
-            a {
-                color: #039be5;
+
+            .breadcrumb {
                 text-decoration: none;
                 -webkit-tap-highlight-color: transparent;
-            }
-            a {
                 background-color: transparent;
-            }
-            .breadcrumb {
                 line-height: 34px;
                 font-size: 18px;
-                color: rgba(67, 110, 144, 0.8);
+                color: var(--breadcrumb-color1,rgb(67, 110, 144));
+                opacity: 0.8;
             }
             .breadcrumb:hover {
                 font-size: 18px;
-                color: rgba(27, 53, 71, 0.98);
-            }
-            .breadcrumb:before {
-                content: '\E5CC';
-                color: rgba(67, 110, 144, 0.8);
-                vertical-align: middle;
-                display: inline-block;
-                font-family: 'Material Icons';
-                font-weight: normal;
-                font-style: normal;
-                font-size: 25px;
-                margin: 0 10px 0 8px;
-                -webkit-font-smoothing: antialiased;
-            }
-            .breadcrumb:first-child:before {
-                display: none;
+                color: var(--breadcrumb-highlight,rgb(27, 53, 71));
+                opacity: 0.98;
             }
             .breadcrumb:last-child {
-                color: rgba(67, 110, 144, 1);
+                color: var(--breadcrumb-color1,rgb(67, 110, 144));
+                opacity: 1.0;
+            }
+            .breadcrumb-arrow {
+                color: var(--breadcrumb-color1,rgb(67, 110, 144));    
+                margin: -2px 6px 0 6px;
+            }
+            .breadcrumb-arrow:first-child {
+                display: none;
             }
             .helpIcon {
                 color: var(--app-primary-color,#436E90);
@@ -73,47 +57,53 @@ Element that does a simple Breadcrumbs Menu
                 overflow: hidden;
             }
         </style>
+        <iron-iconset-svg name="breadcrumbs_icons" size="24">
+            <svg><defs>
+                <g id="help"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></g>
+                <g id="chevron-right"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></g>
+            </defs></svg>
+        </iron-iconset-svg>
         <div class="flex layout breadcrumb_layout">
             <template id="resultList" is="dom-repeat" items="{{menu}}" as="m">
+                <iron-icon class="breadcrumb-arrow" icon="breadcrumbs_icons:chevron-right"></iron-icon>
                 <a on-tap="_selectPage" id="{{m.id}}" class="breadcrumb">{{m.text}}</a>
             </template>
-            <paper-icon-button on-tap="_selectHelp" class="helpIcon" icon="samsicons:help"></paper-icon-button>
+            <paper-icon-button on-tap="_selectHelp" class="helpIcon" icon="breadcrumbs_icons:help"></paper-icon-button>
         </div>
     </template>
-
     <script>
-
         var app;
-        Polymer({
-
-            is: 'jas-breadcrumbs',
-
-            properties: {
-                menu: {
-                    type: Object,
-                    notify: true
+        class JasBreadcrumbs extends Polymer.GestureEventListeners(Polymer.Element) {
+            static get is() { return 'jas-breadcrumbs'; }       
+            static get properties()      {
+                return {
+                    menu: {
+                        type: Object,
+                        notifies: true
+                    }
                 }
-            },
-            attached: function() {
-                // Attempts to store itself in app as Global Variable so that it can be found
-                if (app != undefined) {
-                    app.breadcrumbs = this;
-                }
-            },
-            setMenu: function(newMenu) {
+            };
+            constructor() {
+                super();
+            };
+            attached() {
+            };
+            setMenu(newMenu) {
                 this.menu = newMenu;
-            },
-            _selectPage: function(e) {
+            };
+            _selectPage(e) {
                 var model = e.model;
                 if (model.m != undefined) {
                     this.fire('page_change', {page:  model.m.id});
                 }
-            },
-            _selectHelp: function() {
-                if (app != undefined) {
-                    app.openHelpPage();
-                }
+            };
+            _selectHelp() {
+                this.fire('page_help',{ page: "help" });
+            };
+            fire(name,detail) {
+                this.dispatchEvent(new CustomEvent(name, {detail: {detail}}));
             }
-        });
+        }    
+        customElements.define(JasBreadcrumbs.is, JasBreadcrumbs);
     </script>
 </dom-module>
