@@ -101,7 +101,7 @@ Element that does a simple Breadcrumbs Menu
                 this.fire('page_help',{ page: "help" });
             };
             fire(name,detail) {
-                this.dispatchEvent(new CustomEvent(name, {detail: {detail}}));
+                document.dispatchEvent(new CustomEvent(name, {detail: {detail}}));
             }
         }    
         customElements.define(JasBreadcrumbs.is, JasBreadcrumbs);
