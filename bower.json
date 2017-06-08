@@ -3,7 +3,7 @@
   "description": "Simple Breadcrumbs Menu",
   "main": "jas-breadcrumbs.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0"
+    "polymer": "Polymer/polymer#1 - 2"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
