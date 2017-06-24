@@ -82,25 +82,23 @@ Element that does a simple Breadcrumbs Menu
                         notifies: true
                     }
                 }
-            };
+            }
             constructor() {
                 super();
                 JasBreadcrumbs.hook = this;
-            };
-            attached() {
-            };
+            }
             setMenu(newMenu) {
                 this.menu = newMenu;
-            };
+            }
             _selectPage(e) {
                 var model = e.model;
                 if (model.m != undefined) {
                     this.fire('page_change', {page:  model.m.id});
                 }
-            };
+            }
             _selectHelp() {
                 this.fire('page_help',{ page: "help" });
-            };
+            }
             fire(name,detail) {
                 document.dispatchEvent(new CustomEvent(name, {detail: detail}));
             }
