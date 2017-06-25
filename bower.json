@@ -1,6 +1,7 @@
 {
   "name": "jas-breadcrumbs",
   "description": "Simple Breadcrumbs Menu",
+  "license":"https://opensource.org/licenses/MIT",
   "main": "jas-breadcrumbs.html",
   "dependencies": {
     "polymer": "Polymer/polymer#1.9 - 2"
