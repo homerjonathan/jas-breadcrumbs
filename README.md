@@ -4,12 +4,12 @@
 <template>
     <link rel="import" href="jas-breadcrumbs.html">
     <script>
-        document.addEventListener('WebComponentsReady', function() {
+        document.addEventListener("DOMContentLoaded", function(event) {
           var breadCrumbMenu = [];
           breadCrumbMenu.push({text: "Main", id: "main"});
           breadCrumbMenu.push({text: "Second", id: "second"});
           breadCrumbMenu.push({text: "Third", id: "third"});
-          this.$.test.setMenu(breadCrumbMenu);
+          JasBreadcrumbs.hook.setMenu(breadCrumbMenu);
         });
     </script>
 </template>

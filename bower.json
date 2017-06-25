@@ -1,17 +1,25 @@
 {
   "name": "jas-breadcrumbs",
   "description": "Simple Breadcrumbs Menu",
-  "license":"MIT",
+  "license": "MIT",
   "main": "jas-breadcrumbs.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#1.9 - 2"
+    "polymer": "Polymer/polymer#1.9 - 2",
+    "paper-icon-button": "^2.0.0",
+    "iron-iconset-svg": "^2.0.0"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
+    "iron-component-page": "^3.0.0"
   },
   "resolutions": {
     "polymer": "^2.0.0"
+  },
+  "lint": {
+    "rules": [
+      "polymer-2"
+    ]
   }
 }
