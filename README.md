@@ -1,5 +1,5 @@
 <!--
-```html
+```
 <custom-element-demo>
 <template>
     <link rel="import" href="jas-breadcrumbs.html">
@@ -46,20 +46,20 @@ You set the breadcrumbs by sending an array in this example format below.  It us
 
 This component supports
 
-* **--app-primary-color** For the Help Icon
-* **--breadcrumb-highlight** When the Mouse Hovers over the Breadcrumb Link
+* **--app-primary-color** For the Help Icon Colour
+* **--breadcrumb-highlight** Colour of Link when the Mouse Hovers over the Breadcrumb Option
 * **--breadcrumb-color1**  Normal Colour of Breadcrumb Text
 
 ## Events
 
-There are two ways.  The first
+There are two ways.  The first example below.  So you can trap the output in the Polymer way.
 
 ```html
   <jas-breadcrumbs id="breadcrumbs" selected="{{page}}"></jasbreadcrumbs>
   
 ```
 
-So you can trap the output in the Polymer way.  Or you can trap the fired dispatch event and you can use it to change the page.
+Or you can trap the fired dispatch event and you can use it to change the page.  Enter this into your script to trap the message.
 
 ```javascript
     document.addEventListener("page_change", function(e) {
