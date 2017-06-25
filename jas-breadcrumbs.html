@@ -80,6 +80,11 @@ Element that does a simple Breadcrumbs Menu
                     menu: {
                         type: Object,
                         notifies: true
+                    },
+                    selected: {
+                        type: String,
+                        notifies: true,
+                        reflectToAttribute: true
                     }
                 }
             }
@@ -93,10 +98,12 @@ Element that does a simple Breadcrumbs Menu
             _selectPage(e) {
                 var model = e.model;
                 if (model.m != undefined) {
+                    this.selected = model.m.id;
                     this.fire('page_change', {page:  model.m.id});
                 }
             }
             _selectHelp() {
+                this.selected = "page_help";
                 this.fire('page_help',{ page: "help" });
             }
             fire(name,detail) {
