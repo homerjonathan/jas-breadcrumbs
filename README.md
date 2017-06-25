@@ -41,6 +41,15 @@ You set the breadcrumbs by sending a json file in this format:
           this.$.breadcrumbs.setMenu(breadCrumbMenu);
 
 ```
+
+## Setting Colours
+
+This component supports
+
+  **--app-primary-color** For the Help Icon
+  **--breadcrumb-highlight** When the Mouse Hovers over the Breadcrumb Link
+  **--breadcrumb-color1**  Normal Colour of Breadcrumb Text
+
 ## Events
 
 There are two ways.  The first
