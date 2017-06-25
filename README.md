@@ -31,7 +31,7 @@ Simple Breadcrumbs Menu with Help Icon at the right side of the Page.  A Polymer
 ```
 This will create a menu.  When the item is select the 'id' above is set to the attribute and also a message is fired.  You can use your most prefered method of processing the event.
 
-You set the breadcrumbs by sending a json file in this format:
+You set the breadcrumbs by sending an array in this example format below.  It uses text for what appears on the menu whilst the id is what is outputted when clicked.
 
 ```javascript
  var breadCrumbMenu = [];
@@ -46,9 +46,9 @@ You set the breadcrumbs by sending a json file in this format:
 
 This component supports
 
-  **--app-primary-color** For the Help Icon
-  **--breadcrumb-highlight** When the Mouse Hovers over the Breadcrumb Link
-  **--breadcrumb-color1**  Normal Colour of Breadcrumb Text
+* **--app-primary-color** For the Help Icon
+* **--breadcrumb-highlight** When the Mouse Hovers over the Breadcrumb Link
+* **--breadcrumb-color1**  Normal Colour of Breadcrumb Text
 
 ## Events
 
