@@ -26,7 +26,7 @@ Simple Breadcrumbs Menu with Help Icon at the right side of the Page.  A Polymer
 ```html
 
   <link rel="import" href="../bower_components/jas-breadcrumbs/jas-breadcrumbs.html">
-  <jas-breadcrumbs id="breadcrumbs" selected="{{page}}"></jasbreadcrumbs>
+  <jas-breadcrumbs id="breadcrumbs" selected="{{page}}"></jas-breadcrumbs>
   
 ```
 This will create a menu.  When the item is select the 'id' above is set to the attribute and also a message is fired.  You can use your most prefered method of processing the event.
