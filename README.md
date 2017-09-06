@@ -55,7 +55,7 @@ This component supports
 There are two ways.  The first example below.  So you can trap the output in the Polymer way.
 
 ```html
-  <jas-breadcrumbs id="breadcrumbs" selected="{{page}}"></jasbreadcrumbs>
+  <jas-breadcrumbs id="breadcrumbs" selected="{{page}}"></jas-breadcrumbs>
   
 ```
 
