@@ -5,6 +5,7 @@
 <custom-element-demo>
 <template>
     <link rel="import" href="jas-breadcrumbs.html">
+    <jas-breadcrumbs id="breadcrumbs" selected="{{page}}"></jas-breadcrumbs>
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
           var breadCrumbMenu = [];
