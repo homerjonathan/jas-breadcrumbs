@@ -1,4 +1,5 @@
-![Vaadin Directory availability](https://img.shields.io/badge/Vaadin%20Directory-available-green.svg?style=flat-square&colorB=00b4f0&link=https://vaadin.com/directory)
+[![Published on Vaadin  Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg?style=flat-square)](https://vaadin.com/directory/component/homerjonathanjas-breadcrumbs)
+[![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/homerjonathanjas-breadcrumbs.svg?style=flat-square)](https://vaadin.com/directory/component/homerjonathanjas-breadcrumbs)
 
 <!--
 ```
