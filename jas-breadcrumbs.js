@@ -7,6 +7,7 @@ Element that does a simple Breadcrumbs Menu
 @demo demo/index.html
 */
 
+import {PolymerElement} from '@polymer/polymer/polymer-element.js';
 import {GestureEventListeners} from '@polymer/polymer/lib/mixins/gesture-event-listeners.js';
 
 class JasBreadcrumbs extends GestureEventListeners(PolymerElement) {
