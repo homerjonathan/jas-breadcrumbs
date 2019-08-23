@@ -1,26 +1,30 @@
 {
-  "description": "Simple Breadcrumbs Menu",
-  "name": "@jasoftware/jas-breadcrumbs",
-  "version": "3.0.4",
-  "resolutions": {
-    "inherits": "2.0.3",
-    "samsam": "1.1.3",
-    "supports-color": "3.1.2",
-    "type-detect": "1.0.0"
-  },
-  "main": "jas-breadcrumbs.js",
-  "license": "MIT",
-  "dependencies": {
-    "@polymer/polymer": "^3.0.0",
-    "@polymer/paper-icon-button": "^3.0.0",
-    "@polymer/iron-iconset-svg": "^3.0.0",
-    "@polymer/iron-icon": "^3.0.0"
-  },
-  "devDependencies": {
-    "@polymer/iron-component-page": "4.0.1",
-    "@polymer/iron-demo-helpers": "^3.0.0",
-    "@webcomponents/webcomponentsjs": "^2.0.0",
-    "wct-browser-legacy": "^1.0.1",
-    "web-component-tester": "^6.9.2"
-  }
+    "description": "Simple Breadcrumbs Menu",
+    "name": "@jasoftware/jas-breadcrumbs",
+    "version": "3.0.5",
+    "resolutions": {
+        "inherits": "2.0.3",
+        "samsam": "1.1.3",
+        "supports-color": "3.1.2",
+        "type-detect": "1.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/homerjonathan/jas-breadcrumbs.git"
+    },
+    "main": "jas-breadcrumbs.js",
+    "license": "MIT",
+    "dependencies": {
+        "@polymer/polymer": "^3.0.0",
+        "@polymer/paper-icon-button": "^3.0.0",
+        "@polymer/iron-iconset-svg": "^3.0.0",
+        "@polymer/iron-icon": "^3.0.0"
+    },
+    "devDependencies": {
+        "@polymer/iron-component-page": "4.0.1",
+        "@polymer/iron-demo-helpers": "^3.0.0",
+        "@webcomponents/webcomponentsjs": "^2.0.0",
+        "wct-browser-legacy": "^1.0.1",
+        "web-component-tester": "^6.9.2"
+    }
 }

@@ -7,12 +7,13 @@ Element that does a simple Breadcrumbs Menu
 @demo demo/index.html
 */
 
-import {PolymerElement} from '@polymer/polymer/polymer-element.js';
-import {GestureEventListeners} from '@polymer/polymer/lib/mixins/gesture-event-listeners.js';
+import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import { GestureEventListeners } from '@polymer/polymer/lib/mixins/gesture-event-listeners.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 
 class JasBreadcrumbs extends GestureEventListeners(PolymerElement) {
-  static get template() {
-    return Polymer.html`
+    static get template() {
+        return html `
         <style>
             :host {
                 display: block;
@@ -72,42 +73,42 @@ class JasBreadcrumbs extends GestureEventListeners(PolymerElement) {
             <paper-icon-button on-tap="_selectHelp" class="helpIcon" icon="breadcrumbs_icons:help"></paper-icon-button>
         </div>
 `;
-  }
+    }
 
-  static get is() { return 'jas-breadcrumbs'; }
-  static get properties()      {
-      return {
-          menu: {
-              type: Object,
-              notifies: true
-          },
-          selected: {
-              type: String,
-              notifies: true,
-              reflectToAttribute: true
-          }
-      }
-  }
-  constructor() {
-      super();
-      JasBreadcrumbs.hook = this;
-  }
-  setMenu(newMenu) {
-      this.menu = newMenu;
-  }
-  _selectPage(e) {
-      var model = e.model;
-      if (model.m != undefined) {
-          this.selected = model.m.id;
-          this.fire('page_change', {page:  model.m.id});
-      }
-  }
-  _selectHelp() {
-      this.selected = "page_help";
-      this.fire('page_help',{ page: "help" });
-  }
-  fire(name,detail) {
-      document.dispatchEvent(new CustomEvent(name, {detail: detail}));
-  }
+    static get is() { return 'jas-breadcrumbs'; }
+    static get properties() {
+        return {
+            menu: {
+                type: Object,
+                notifies: true
+            },
+            selected: {
+                type: String,
+                notifies: true,
+                reflectToAttribute: true
+            }
+        }
+    }
+    constructor() {
+        super();
+        JasBreadcrumbs.hook = this;
+    }
+    setMenu(newMenu) {
+        this.menu = newMenu;
+    }
+    _selectPage(e) {
+        var model = e.model;
+        if (model.m != undefined) {
+            this.selected = model.m.id;
+            this.fire('page_change', { page: model.m.id });
+        }
+    }
+    _selectHelp() {
+        this.selected = "page_help";
+        this.fire('page_help', { page: "help" });
+    }
+    fire(name, detail) {
+        document.dispatchEvent(new CustomEvent(name, { detail: detail }));
+    }
 }
 customElements.define(JasBreadcrumbs.is, JasBreadcrumbs);
